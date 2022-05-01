@@ -12,7 +12,7 @@
       ip_address: "{{ ansible_host }}"
 
   tasks:
-  - name: Create service group 'Prod-Services'
+  - name: Create service group 'Prod1-Services'
     panos_service_group:
      provider: '{{ palo_provider }}'
      name: 'Prod-Services'
