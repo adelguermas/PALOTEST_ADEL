@@ -1,0 +1,38 @@
+---
+
+- name: PANOS_PLAYBOOK
+  hosts: all
+#  gather_facts: false
+#  connection: local
+
+  collections:
+    - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      username: "admin"
+      password: "AD@2010el"
+      api_key: LUFRPT1WblNwQWQ1RmRBdGdMaFgvTDViT3lNLytlM2M9b0FHUmtNbXZzY0VNMTZrU3JHeGpUdEpoRGFjS3dXWVdjbE9uQmMrR3BLQjNkUE9QRWdiTWRkRnB5Z3FuRUt2MQ==
+
+
+  tasks:
+   - name: Add CR234312 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      username: "admin"
+      password: "AD@2010el"
+      api_key: LUFRPT1WblNwQWQ1RmRBdGdMaFgvTDViT3lNLytlM2M9b0FHUmtNbXZzY0VNMTZrU3JHeGpUdEpoRGFjS3dXWVdjbE9uQmMrR3BLQjNkUE9QRWdiTWRkRnB5Z3FuRUt2MQ==
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312'
+      description: 'CR234312'
+      source_zone: ['Inside']
+      destination_zone: ['test1']
+      source_ip: ['testaddress1']
+      source_user: ['any']
+      destination_ip: ['Test-two']
+      category: ['any']
+      application: ['any']
+      service: ['Prod1-Services']
+      hip_profiles: ['any']
+      action: 'allow'
+      commit: 'False'
