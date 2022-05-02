@@ -1,27 +1,22 @@
 ---
-
-- name: PANOS_PLAYBOOK
+- name: paloalto set dns, setup http backup user
   hosts: all
-#  gather_facts: false
-#  connection: local
+  connection: local
 
   collections:
-    - paloaltonetworks.panos
+      - paloaltonetworks.panos
 
   vars:
     palo_provider:
-      username: "admin"
-      password: "AD@2010el"
-      api_key: LUFRPT1WblNwQWQ1RmRBdGdMaFgvTDViT3lNLytlM2M9b0FHUmtNbXZzY0VNMTZrU3JHeGpUdEpoRGFjS3dXWVdjbE9uQmMrR3BLQjNkUE9QRWdiTWRkRnB5Z3FuRUt2MQ==
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+
 
 
   tasks:
    - name: Add CR234312 to the firewall
      panos_security_rule:
       provider: '{{ palo_provider }}'
-      username: "admin"
-      password: "AD@2010el"
-      api_key: LUFRPT1WblNwQWQ1RmRBdGdMaFgvTDViT3lNLytlM2M9b0FHUmtNbXZzY0VNMTZrU3JHeGpUdEpoRGFjS3dXWVdjbE9uQmMrR3BLQjNkUE9QRWdiTWRkRnB5Z3FuRUt2MQ==
       ip_address: '{{ ansible_host }}'
       rule_name: 'CR234312'
       description: 'CR234312'
