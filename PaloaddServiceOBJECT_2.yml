@@ -1,6 +1,6 @@
 ---
 - name: paloalto set dns, setup http backup user
-  hosts: panos
+  hosts: all
   connection: local
 
   collections:
