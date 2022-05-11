@@ -1,0 +1,120 @@
+---
+- name:  create  node
+  hosts: F5LTM
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.25" 
+      name: "vcc-25.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.26" 
+      name: "vcc-26.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.27" 
+      name: "vcc-27.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.28" 
+      name: "vcc-28.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.29" 
+      name: "vcc-29.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.30" 
+      name: "vcc-30.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.31" 
+      name: "vcc-31.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.32" 
+      name: "vcc-32.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.33" 
+      name: "vcc-33.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.34" 
+      name: "vcc-34.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.35" 
+      name: "vcc-35.eu"
+  - name: CREATE NODES
+    bigip_node:
+     provider: "{{f5_provider}}"
+     host: "6.6.6.36" 
+      name: "vcc-36.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.37" 
+      name: "vcc-37.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.38" 
+      name: "vcc-38.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.39" 
+      name: "vcc-39.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.40" 
+      name: "vcc-40.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.41" 
+      name: "vcc-41.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.42" 
+      name: "vcc-42.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.43" 
+      name: "vcc-43.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.44" 
+      name: "vcc-44.eu"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "6.6.6.45" 
+      name: "vcc-45.eu"
