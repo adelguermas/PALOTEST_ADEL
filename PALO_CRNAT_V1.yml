@@ -12,7 +12,7 @@
     palo_provider:
       username: "admin"
       password: "AD@2010el"
-      api_key: LUFRPT1WblNwQWQ1RmRBdGdMaFgvTDViT3lNLytlM2M9b0FHUmtNbXZzY0VNMTZrU3JHeGpUdEpoRGFjS3dXWVdjbE9uQmMrR3BLQjNkUE9QRWdiTWRkRnB5Z3FuRUt2MQ==
+      api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
 
 
   tasks:
@@ -21,7 +21,7 @@
       provider: '{{ palo_provider }}'
       username: "admin"
       password: "AD@2010el"
-      api_key: LUFRPT1WblNwQWQ1RmRBdGdMaFgvTDViT3lNLytlM2M9b0FHUmtNbXZzY0VNMTZrU3JHeGpUdEpoRGFjS3dXWVdjbE9uQmMrR3BLQjNkUE9QRWdiTWRkRnB5Z3FuRUt2MQ==
+      api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
       ip_address: '{{ ansible_host }}'
       rule_name: CRNAT'
       description: 'ANT_TEST'
