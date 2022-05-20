@@ -28,7 +28,7 @@
       destination_zone: "test1"
       source_ip: ["any"]
       destination_ip: ['network_1']
-      service: "mysql-tcp-3306 "
+      service: "mysql-tcp-3306"
       snat_type: "dynamic-ip-and-port"
       snat_interface: "ethernet1/3" 
       dnat_address: "10.0.1.101"      
