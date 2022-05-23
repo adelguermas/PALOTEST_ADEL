@@ -23,7 +23,7 @@
        ip_address: '{{ ansible_host }}'
        state: 'present'
        name: 'IKEGW-Ansible'
-       version: 'ikev2'
+       version: 'IKEv2 preferred mode'
        interface: 'ethernet1/1'
        enable_passive_mode: True
        enable_liveness_check: True
