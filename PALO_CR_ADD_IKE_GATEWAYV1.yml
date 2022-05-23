@@ -14,21 +14,21 @@
         api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
 
   tasks:
-- name: Add IKE gateway config to the firewall
-  panos_ike_gateway:
-   provider: '{{ palo_provider }}'
-   username: "admin"
-   password: "AD@2010el"
-   api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
-   ip_address: '{{ ansible_host }}'
-   state: 'present'
-   name: 'IKEGW-Ansible'
-   version: 'ikev2'
-   interface: 'ethernet1/1'
-   enable_passive_mode: True
-   enable_liveness_check: True
-   liveness_check_interval: '5'
-   peer_ip_value: '1.2.3.4'
-   pre_shared_key: 'CHANGEME'
-   ikev2_crypto_profile: 'IKE-Ansible'
-   commit: False
+   - name: Add IKE gateway config to the firewall
+     panos_ike_gateway:
+       provider: '{{ palo_provider }}'
+       username: "admin"
+       password: "AD@2010el"
+       api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
+       ip_address: '{{ ansible_host }}'
+       state: 'present'
+       name: 'IKEGW-Ansible'
+       version: 'ikev2'
+       interface: 'ethernet1/1'
+       enable_passive_mode: True
+       enable_liveness_check: True
+       liveness_check_interval: '5'
+       peer_ip_value: '1.2.3.4'
+       pre_shared_key: 'CHANGEME'
+       ikev2_crypto_profile: 'IKE-Ansible'
+       commit: False
