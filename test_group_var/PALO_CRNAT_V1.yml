@@ -1,0 +1,37 @@
+---
+
+- name: NAT PLAYBOOK
+  hosts: all
+#  gather_facts: false
+#  connection: local
+
+  collections:
+    - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      username: "admin"
+      password: "AD@2010el"
+      api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
+
+
+  tasks:
+   - name: Add CRNAT to the firewall
+     panos_nat_rule:
+      provider: '{{ palo_provider }}'
+      username: "admin"
+      password: "AD@2010el"
+      api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
+      ip_address: '{{ ansible_host }}'
+      rule_name: "crnat"
+      source_zone: ['Inside']
+      destination_zone: "test1"
+      source_ip: ["any"]
+      destination_ip: ['network_1']
+      service: "mysql-tcp-3306"
+      snat_type: "dynamic-ip-and-port"
+      snat_interface: "ethernet1/3" 
+      dnat_address: "10.0.1.101"      
+      dnat_port: "22"
+      commit: 'False'
+
