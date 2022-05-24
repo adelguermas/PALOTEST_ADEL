@@ -30,5 +30,5 @@
        liveness_check_interval: '5'
        peer_ip_value: '1.2.3.4'
        pre_shared_key: 'CHANGEME'
-       ikev2_crypto_profile: 'IKE-Ansible'
+       ikev2_crypto_profile: 'default'
        commit: False
