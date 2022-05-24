@@ -1,0 +1,23 @@
+---
+- name: paloalto set dns, setup http backup user
+  hosts: panos
+  connection: local
+
+  collections:
+      - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+
+  tasks:
+  - name: Create service group 'Prod1-Services'
+    panos_service_group:
+     provider: '{{ palo_provider }}'
+     name: 'Prod-Services'
+     value: ['ftp-tcp-21', 'svc-tcp-8206']
+  
+  - name: Commiting all above changes     
+    panos_commit_firewall:                
+           provider: '{{ palo_provider }}'
