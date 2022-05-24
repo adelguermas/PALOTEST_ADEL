@@ -25,8 +25,8 @@
        name: 'IKEGW-Ansible'
        version: 'ikev2-preferred'
        interface: 'ethernet1/1'
-       enable_passive_mode: True
-       enable_liveness_check: True
+       enable_passive_mode: 'True'
+       enable_liveness_check: 'True'
        liveness_check_interval: '5'
        peer_ip_value: '1.2.3.4'
        pre_shared_key: 'CHANGEME'
