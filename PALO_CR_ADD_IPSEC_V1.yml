@@ -1,6 +1,5 @@
 ---
-
-- name: IKE_GATEWAY
+- name: IPSEC_TUNNEL
   hosts: all
 #  gather_facts: false
 #  connection: local
