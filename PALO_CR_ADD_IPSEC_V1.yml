@@ -22,6 +22,6 @@
        state: 'present' 
        name: 'IPSecTunnel-Ansible' 
        tunnel_interface: 'tunnel.2' 
-       ike_gtw_name: 'IKEGW-Ansible' 
-       ipsec_profile: 'default' 
+       ak_ike_gateway: 'IKEGW-Ansible'
+       ak_ipsec_crypto_profile: 'default' 
        commit: 'False' 
