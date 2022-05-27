@@ -21,7 +21,7 @@
        api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
        name: 'IPSecTunnel-Ansible' 
        tunnel_interface: 'tunnel.2' 
-       ike_gateway: 'IKEGW-Ansible'
-       ipsec_crypto_profile: 'default'
+       ak_ike_gateway: 'IKEGW-Ansible'
+       ak_ipsec_crypto_profile: 'default'
        commit: 'False' 
 
