@@ -15,7 +15,7 @@
   tasks:
    - name: Add IPSec tunnel to IKE gateway profile
      panos_ipsec_tunnel:
-       provider: "{{ panosadelanddeep_provider }}"
+       provider: "{{ palo_provider }}"
        username: "admin"
        password: "AD@2010el"
        api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
