@@ -1,0 +1,33 @@
+
+---
+
+- name: IPSec crypto
+  hosts: all
+#  gather_facts: false
+#  connection: local
+  collections:
+    - paloaltonetworks.panos
+
+  vars:
+      palo_provider:
+        username: "admin"
+        password: "AD@2010el"
+        api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
+
+  tasks:
+   - name: Add IPSec crypto config to the firewall
+     panos_ipsec_profile:
+       provider: '{{ palo_provider }}'
+       username: "admin"
+       password: "AD@2010el"
+       api_key: LUFRPT02SUNLWTFhOFdKQ2JqNHo5YXVVRUZaV3F2R0k9SWJGbllUaFMzQTN4OWF6bHR2SFYwWUdNT2N2STY2b0MzSlhjMG05QTZOcy9SOGVUbFNJeVkyV3N0SlZHK0dweA==
+       state: 'present'
+       name: 'IPSec-Ansible'
+       esp_authentication: ['sha1']
+       esp_encryption: ['aes-128-cbc']
+       lifetime_seconds: '3600'
+       commit: False
+
+
+
+
