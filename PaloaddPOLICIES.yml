@@ -1,0 +1,119 @@
+---
+- name: paloalto add policies
+  hosts: all
+  connection: local
+
+  collections:
+      - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+
+
+
+  tasks:
+   - name: Add CR234312-r1 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312-r1'
+      description: 'CR234312-r1'
+      source_zone: ['Inside' , 'trust']
+      destination_zone: ['untrust' , 'EDGE']
+      source_ip: ['obgr_Range-Test-1' , 'obgr_Networkjourney-1']
+      source_user: ['any']
+      destination_ip: ['obgr_Networkjourney-2' , 'obgr_Range-Test-2']
+      category: ['any']
+      application: ['any']
+      service: ['mysql-tcp-3306']
+      hip_profiles: ['any']
+      action: 'allow'
+      commit: 'False'
+   - name: Add CR234312-r2 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312-r2'
+      description: 'CR234312-r2'
+      source_zone: ['Inside' , 'trust']
+      destination_zone: ['untrust' , 'EDGE']
+      source_ip: ['obgr_Range-Test-2' , 'obgr_Networkjourney-2']
+      source_user: ['any']
+      destination_ip: ['obgr_Networkjourney-3' , 'obgr_Range-Test-1']
+      category: ['any']
+      application: ['any']
+      service: ['ftp-tcp-21']
+      hip_profiles: ['any']
+      action: 'allow'
+      commit: 'False'
+
+   - name: Add CR234312-r3 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312-r3'
+      description: 'CR234312-r3'
+      source_zone: ['untrust' , 'EDGE']
+      destination_zone: ['Inside' , 'trust'] 
+      source_ip: ['obgr_Networkjourney-3' , 'obgr_Range-Test-1']
+      source_user: ['any']
+      destination_ip: ['obgr_Range-Test-2' , 'obgr_Networkjourney-2']
+      category: ['any']
+      application: ['ssh']
+      service: ['application-default']
+      hip_profiles: ['any']
+      action: 'allow'
+      commit: 'False'
+   - name: Add CR234312-r4 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312-r4'
+      description: 'CR234312-r4'
+      source_zone: ['untrust' , 'EDGE']
+      destination_zone: ['Inside' , 'trust'] 
+      source_ip: ['Networkjourney-web' , 'obgr_Networkjourney-3']
+      source_user: ['any']
+      destination_ip: ['obgr_Range-Test-2' , 'obgr_TEST_NET_GROUP']
+      category: ['any']
+      application: ['http']
+      service: ['application-default']
+      hip_profiles: ['any']
+      action: 'allow'
+      commit: 'False'
+   - name: Add CR234312-r5 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312-r5'
+      description: 'CR234312-r5'
+      source_zone: ['untrust' , 'EDGE']
+      destination_zone: ['Inside' , 'trust'] 
+      source_ip: ['Networkjourney-web' , 'obgr_Networkjourney-2']
+      source_user: ['any']
+      destination_ip: ['obgr_Range-Test-1' , 'obgr_TEST_NET_GROUP_2']
+      category: ['any']
+      application: ['https']
+      service: ['application-default']
+      hip_profiles: ['any']
+      action: 'allow'
+      commit: 'False'
+   - name: Add CR234312-r6 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312-r6'
+      description: 'CR234312-r6'
+      source_zone: ['untrust' , 'EDGE']
+      destination_zone: ['Inside' , 'trust'] 
+      source_ip: ['Networkjourney-web' , 'obgr_Networkjourney-2']
+      source_user: ['any']
+      destination_ip: ['obgr_Range-Test-1' , 'obgr_TEST_NET_GROUP_2']
+      category: ['any']
+      application: ['https' , 'http']
+      service: ['application-default']
+      hip_profiles: ['any']
+      action: 'allow'
+      commit: 'False'
