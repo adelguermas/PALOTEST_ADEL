@@ -34,31 +34,31 @@
     panos_address_object:
      provider: '{{ palo_provider }}'
      name: 'Networkjourney-db'
-     address_type: 'ip netmask'
+     address_type: 'ip-netmask'
      value: '5.5.5.0/24'
   - name: Create object 'Networkjourney-web'
     panos_address_object:
      provider: '{{ palo_provider }}'
      name: 'Networkjourney-web'
-     address_type: 'ip netmask'
+     address_type: 'ip-netmask'
      value: '4.4.4.0/24'
   - name: Create object 'Networkjourney-sql'
     panos_address_object:
      provider: '{{ palo_provider }}'
      name: 'Networkjourney-sql'
-     address_type: 'ip netmask'
+     address_type: 'ip-netmask'
      value: '6.6.6.0/24'
   - name: Create object 'Networkjourney-tools'
     panos_address_object:
      provider: '{{ palo_provider }}'
      name: 'Networkjourney-tools'
-     address_type: 'ip netmask'
+     address_type: 'ip-netmask'
      value: '1.1.1.0/24'
   - name: Create object 'Networkjourney-infra'
     panos_address_object:
      provider: '{{ palo_provider }}'
      name: 'Networkjourney-infra'
-     address_type: 'ip netmask'
+     address_type: 'ip-netmask'
      value: '2.2.2.0/24'
   
   - name: Commiting all above changes
