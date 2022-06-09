@@ -1,0 +1,43 @@
+---
+- name: ADD OBJECT GROUPS 
+  hosts: panos
+  connection: local
+
+  collections:
+      - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+
+  tasks:
+  - name: Create object group 'obgr_Range-Test-1'
+    panos_address_group:
+     provider: '{{palo_provider }}'
+     name: 'obgr_Range-Test-1'
+     static_value: ['Range-Test-one', 'Range-Test-two']
+  - name: Create object group 'obgr_Range-Test-2'
+    panos_address_group:
+     provider: '{{palo_provider }}'
+     name: 'obgr_Range-Test-2'
+     static_value: ['Range-Test-four', 'Range-Test-three']
+  - name: Create object group 'obgr_Networkjourney-1'
+    panos_address_group:
+     provider: '{{palo_provider }}'
+     name: 'obgr_Networkjourney-1'
+     static_value: ['Networkjourney-db', 'Networkjourney-sql']
+  - name: Create object group 'obgr_Networkjourney-2'
+    panos_address_group:
+     provider: '{{palo_provider }}'
+     name: 'obgr_Networkjourney-2'
+     static_value: ['Networkjourney-infra', 'Networkjourney-tools']
+  - name: Create object group 'obgr_Networkjourney-3'
+    panos_address_group:
+     provider: '{{palo_provider }}'
+     name: 'obgr_Networkjourney-3'
+     static_value: ['Networkjourney-web']
+    
+  - name: Commiting all above changes
+    panos_commit_firewall:
+           provider: '{{ palo_provider }}'
