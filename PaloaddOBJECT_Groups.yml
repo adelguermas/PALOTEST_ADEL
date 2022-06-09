@@ -1,6 +1,6 @@
 ---
 - name: ADD OBJECT GROUPS 
-  hosts: panos
+  hosts: all
   connection: local
 
   collections:
