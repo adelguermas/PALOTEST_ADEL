@@ -1,0 +1,66 @@
+---
+- name: paloalto add objects
+  hosts: all
+  connection: local
+
+  collections:
+      - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+
+  tasks:
+  - name: Create object 'Range-Test-two'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Range-Test-one'
+     address_type: 'ip-range'
+     value: '30.30.30.30-40.40.40.40'
+  - name: Create object 'Range-Test-three'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Range-Test-one'
+     address_type: 'ip-range'
+     value: '50.50.50.50-60.60.60.60'
+  - name: Create object 'Range-Test-four'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Range-Test-one'
+     address_type: 'ip-range'
+     value: '70.70.70.70-80.80.80.80'
+  - name: Create object 'Networkjourney-db'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Networkjourney-db'
+     address_type: 'ip netmask'
+     value: '5.5.5.0/24'
+  - name: Create object 'Networkjourney-web'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Networkjourney-web'
+     address_type: 'ip netmask'
+     value: '4.4.4.0/24'
+  - name: Create object 'Networkjourney-sql'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Networkjourney-sql'
+     address_type: 'ip netmask'
+     value: '6.6.6.0/24'
+  - name: Create object 'Networkjourney-tools'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Networkjourney-tools'
+     address_type: 'ip netmask'
+     value: '1.1.1.0/24'
+  - name: Create object 'Networkjourney-infra'
+    panos_address_object:
+     provider: '{{ palo_provider }}'
+     name: 'Networkjourney-infra'
+     address_type: 'ip netmask'
+     value: '2.2.2.0/24'
+  
+  - name: Commiting all above changes
+    panos_commit_firewall:
+           provider: '{{ palo_provider }}'
