@@ -1,0 +1,21 @@
+---
+- name: setup security profile group
+  hosts: all
+  connection: local
+
+  collections:
+      - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+  tasks:
+   - name: setup security profile group
+     panos_pg:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      pg_name: "pg-default"
+      virus: "default"
+      spyware: "default"
+      vulnerability: "default"
