@@ -78,7 +78,7 @@
       source_user: ['any']
       destination_ip: ['obgr_Range-Test-2' , 'obgr_TEST_NET_GROUP']
       category: ['any']
-      application: ['http']
+      application: ['web-browsing' , 'ssh']
       service: ['application-default']
       hip_profiles: ['any']
       action: 'allow'
@@ -95,7 +95,7 @@
       source_user: ['any']
       destination_ip: ['obgr_Range-Test-1' , 'obgr_TEST_NET_GROUP_2']
       category: ['any']
-      application: ['https']
+      application: ['web-browsing' , 'ssh', 'google-base']
       service: ['application-default']
       hip_profiles: ['any']
       action: 'allow'
@@ -112,7 +112,7 @@
       source_user: ['any']
       destination_ip: ['obgr_Range-Test-1' , 'obgr_TEST_NET_GROUP_2']
       category: ['any']
-      application: ['https' , 'http']
+      application: ['web-browsing' , 'ssh', 'ssl']
       service: ['application-default']
       hip_profiles: ['any']
       action: 'allow'
