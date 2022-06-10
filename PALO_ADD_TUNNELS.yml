@@ -1,0 +1,28 @@
+---
+- name: paloalto add tunnels
+  hosts: all
+  connection: local
+
+  collections:
+      - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+
+
+
+  tasks:
+   - name: create tunnel.1
+     panos_tunnel:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      if_name: "tunnel.1"
+      ip: ["10.1.1.1/32"]
+   - name: create tunnel.2
+     panos_tunnel:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      if_name: "tunnel.2"
+      ip: ["10.1.1.2/32"]
