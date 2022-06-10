@@ -35,6 +35,6 @@
       antivirus: 'default'
       vulnerability: 'strict'
       spyware: 'strict'
-      url_filtering: 'strict'
+      url_filtering: 'default'
       wildfire_analysis: 'default'
       commit: 'False'
