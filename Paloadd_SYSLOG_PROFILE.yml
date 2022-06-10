@@ -1,10 +1,12 @@
 ---
-- name:setup Create syslog profile
+- name: paloalto add policies
   hosts: all
   connection: local
 
   collections:
       - paloaltonetworks.panos
+
+  
 
   vars:
     palo_provider:
