@@ -1,0 +1,40 @@
+---
+- name: paloalto add policies
+  hosts: all
+  connection: local
+
+  collections:
+      - paloaltonetworks.panos
+
+  vars:
+    palo_provider:
+      api_key: LUFRPT1vR0YzdEFFMUhhSG93VHdRNzNJdDlhV1dQcDg9SWJGbllUaFMzQTN4OWF6bHR2SFYwYjZ2TVBLbWdvRXZFWGFvamFNVFpNaFNRMVFlbGtCcUlZT1JrTXpsWmRqdA==
+      ip_address: "{{ ansible_host }}"
+
+
+
+  tasks:
+   - name: Add CR234312-r1 to the firewall
+     panos_security_rule:
+      provider: '{{ palo_provider }}'
+      ip_address: '{{ ansible_host }}'
+      rule_name: 'CR234312-r1'
+      description: 'CR234312-r1'
+      source_zone: ['Inside' , 'trust']
+      destination_zone: ['untrust' , 'EDGE']
+      source_ip: ['obgr_Range-Test-1' , 'obgr_Networkjourney-1']
+      source_user: ['any']
+      destination_ip: ['obgr_Networkjourney-2' , 'obgr_Range-Test-2']
+      category: ['any']
+      application: ['any']
+      service: ['mysql-tcp-3306']
+      hip_profiles: ['any']
+      action: 'allow'
+      log_start: false
+      log_end: true
+      antivirus: 'default'
+      vulnerability: 'strict'
+      spyware: 'strict'
+      url_filtering: 'strict'
+      wildfire_analysis: 'default'
+      commit: 'False'
