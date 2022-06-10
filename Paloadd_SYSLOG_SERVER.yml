@@ -17,7 +17,7 @@
     panos_syslog_server:
      provider: '{{ palo_provider }}'
      ip_address: '{{ ansible_host }}'
-     syslog_profile: 'my-profile'
+     syslog_profile: 'POLICY_SYSLOG'
      name: 'my-syslog-server'
      server: '10.1.1.1'
      syslog_port: 514
